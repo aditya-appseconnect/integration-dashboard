@@ -1,0 +1,224 @@
+/* ===============================
+   Global Dark Theme
+================================ */
+body {
+  background-color: #0b1220;
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.dashboard {
+  padding: 24px;
+}
+
+.dashboard h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #f1f5f9;
+}
+
+/* ===============================
+   Summary Cards
+================================ */
+.summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #0f172a
+  );
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summary-card-title {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.summary-card-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: #38bdf8; /* blue-teal */
+}
+
+/* ===============================
+   Filters
+================================ */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  background-color: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.filters input::placeholder {
+  color: #64748b;
+}
+
+/* ===============================
+   Integration Table
+================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(
+    90deg,
+    #0f766e,
+    #2563eb,
+    #7c3aed
+  );
+}
+
+thead th {
+  padding: 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f8fafc;
+}
+
+tbody tr {
+  border-bottom: 1px solid #1e293b;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(99, 102, 241, 0.08);
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ===============================
+   Integration Row
+================================ */
+.integration-name {
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.integration-app {
+  color: #94a3b8;
+}
+
+.integration-records {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.integration-actions {
+  text-align: center;
+}
+
+/* ===============================
+   Status Badge
+================================ */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-success {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.status-failed {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.status-running {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+}
+
+.status-disabled {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+/* ===============================
+   Retry Button
+================================ */
+.retry-button {
+  background: linear-gradient(
+    135deg,
+    #14b8a6,
+    #6366f1,
+    #ec4899
+  );
+  color: #020617;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.retry-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.6);
+}
+
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   Logs Modal
+================================ */
+.logs-modal {
+  background-color: #020617;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.logs-modal h3 {
+  margin-bottom: 12px;
+  color: #38bdf8;
+}
+
+.log-entry {
+  font-family: monospace;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.log-error {
+  color: #fb7185;
+}
