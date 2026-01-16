@@ -129,14 +129,16 @@ const Dashboard = () => {
         onClick={() => setShowAddModal(true)}
       >
         + Add Integration
+        
       </button>
-
+     
       {/*  Summary */}
       <div className="summary-container">
+        
         <SummaryCard title="Total Integrations" value={totalIntegrations} />
         <SummaryCard title="Running Integrations" value={runningCount} />
         <SummaryCard title="Failed Today" value={failedCount} />
-        <SummaryCard title="Success Rate" value={`${successRate}%`} />
+        <SummaryCard title="Success Rate" value={`${successRate}`} />
         
       </div>
 

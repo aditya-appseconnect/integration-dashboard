@@ -1,0 +1,610 @@
+/* =====================================================
+   GLOBAL DARK THEME
+===================================================== */
+:root {
+  --bg-main: #12002f;
+  --bg-surface: #1a0b3d;
+  --bg-surface-alt: #241164;
+
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --accent-teal: #22d3ee;
+  --accent-blue: #38bdf8;
+  --accent-indigo: #6366f1;
+
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================================================
+   BASE STYLES
+===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.dashboard {
+  padding: 24px;
+}
+
+.dashboard h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+/* =====================================================
+   SUMMARY CARDS
+===================================================== */
+.summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.summary-card {
+  background: linear-gradient(
+    145deg,
+    var(--bg-surface),
+    var(--bg-surface-alt)
+  );
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* =====================================================
+   CIRCULAR PROGRESS
+===================================================== */
+.progress-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.9s ease;
+}
+
+.progress-text {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* =====================================================
+   FILTERS
+===================================================== */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  background-color: var(--bg-main);
+  border: 1px solid #312e81;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.filters input::placeholder {
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-main);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #312e81;
+}
+
+thead {
+  background: linear-gradient(
+    90deg,
+    var(--accent-teal),
+    var(--accent-blue),
+    var(--accent-indigo)
+  );
+}
+
+thead th {
+  padding: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #020617;
+}
+
+tbody tr {
+  border-bottom: 1px solid #312e81;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(99, 102, 241, 0.12);
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* =====================================================
+   INTEGRATION ROW
+===================================================== */
+.integration-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.integration-app {
+  color: var(--text-muted);
+}
+
+.integration-records {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.integration-actions {
+  text-align: center;
+}
+
+/* =====================================================
+   STATUS BADGES
+===================================================== */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-success {
+  background-color: rgba(34, 211, 238, 0.15);
+  color: var(--accent-teal);
+}
+
+.status-failed {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.status-running {
+  background-color: rgba(99, 102, 241, 0.18);
+  color: var(--accent-indigo);
+}
+
+.status-disabled {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+.retry-button,
+.add-integration-btn {
+  background: linear-gradient(
+    135deg,
+    var(--accent-teal),
+    var(--accent-indigo)
+  );
+  color: #020617;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.retry-button:hover,
+.add-integration-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.6);
+}
+
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   MODAL
+===================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: var(--bg-main);
+  padding: 20px;
+  border-radius: 14px;
+  width: 320px;
+  border: 1px solid #312e81;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: var(--bg-main);
+  border: 1px solid #312e81;
+  color: var(--text-primary);
+  border-radius: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* =====================================================
+   LOGS MODAL
+===================================================== */
+.logs-modal {
+  background-color: var(--bg-main);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #312e81;
+  box-shadow: var(--shadow-lg);
+}
+
+.logs-modal h3 {
+  margin-bottom: 12px;
+  color: var(--accent-blue);
+}
+
+.log-entry {
+  font-family: monospace;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.log-error {
+  color: #fb7185;
+}
+/* ===============================
+   Global Dark Theme
+================================ */
+body {
+  background-color: #1d0054;
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.dashboard {
+  padding: 24px;
+}
+
+.dashboard h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #f1f5f9;
+}
+
+/* ===============================
+   Summary Cards
+================================ */
+.summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: linear-gradient(145deg, #21eebe, #4230b4);
+  border-radius: 14px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.progress-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.progress-text {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fefefe;
+}
+
+
+/*.summary-card {
+  background: linear-gradient(
+    135deg,
+    #9866d5da,
+    #5e0ee7
+  );
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summary-card-title {
+  font-size: 13px;
+  color: #2ef5d4;
+  margin-bottom: 8px;
+}
+
+.summary-card-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: #38bdf8; /* blue-teal */
+*/
+
+/* ===============================
+   Filters
+================================ */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  background-color: #020617;
+  border: 1px solid #1e293b;
+  color: #e5eaeb;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.filters input::placeholder {
+  color: #17519c;
+}
+
+/* ===============================
+   Integration Table
+================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(
+    90deg,
+    #0f766e,
+    #2563eb,
+    #7c3aed
+  );
+}
+
+thead th {
+  padding: 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f8fafc;
+}
+
+tbody tr {
+  border-bottom: 1px solid #1e293b;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(99, 102, 241, 0.08);
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ===============================
+   Integration Row
+================================ */
+.integration-name {
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.integration-app {
+  color: #94a3b8;
+}
+
+.integration-records {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.integration-actions {
+  text-align: center;
+}
+
+/* ===============================
+   Status Badge
+================================ */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-success {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.status-failed {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.status-running {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+}
+
+.status-disabled {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+/* ===============================
+   Retry Button
+================================ */
+.retry-button {
+  background: linear-gradient(
+    135deg,
+    #14b8a6,
+    #6366f1,
+    #ec4899
+  );
+  color: #020617;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.retry-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.6);
+}
+
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   Logs Modal
+================================ */
+.logs-modal {
+  background-color: #020617;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.logs-modal h3 {
+  margin-bottom: 12px;
+  color: #38bdf8;
+}
+
+.log-entry {
+  font-family: monospace;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.log-error {
+  color: #fb7185;
+}
+.add-integration-btn {
+  background: linear-gradient(135deg, #14b8a6, #6366f1, #ec4899);
+  color: #020617;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #020617;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  border: 1px solid #1e293b;
+}
+
+.modal input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  border-radius: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
