@@ -70,6 +70,8 @@ const Dashboard = () => {
   const sources = [...new Set(integrations.map(i => i.sourceApp))]
   const targets = [...new Set(integrations.map(i => i.targetApp))]
 
+
+  
   //  Filtered integrations (derived state)
   const filteredIntegrations = integrations.filter((integration) => {
     const matchesSearch = integration.name
@@ -139,6 +141,8 @@ const Dashboard = () => {
         <SummaryCard title="Running Integrations" value={runningCount} />
         <SummaryCard title="Failed Today" value={failedCount} />
         <SummaryCard title="Success Rate" value={`${successRate}`} />
+        <SummaryCard title="Success Rate" value={`${successRate}`} />
+        
         
       </div>
 

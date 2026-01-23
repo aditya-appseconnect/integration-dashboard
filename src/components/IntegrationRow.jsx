@@ -1,6 +1,9 @@
 import StatusBadge from "./StatusBadge"
 import RetryButton from "./RetryButton"
 
+//integration ->object,onRetry->function(logic in the dashboard)
+
+
 function IntegrationRow({ integration, onRetry, retrying }) {
   return (
     <tr>
